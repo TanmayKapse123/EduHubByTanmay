@@ -1,0 +1,110 @@
+@model IEnumerable<EduHubMVC.Models.Material>
+@{
+    ViewData["Title"] = "Educator Section";
+    Layout = "~/Views/Shared/_LayoutEducator.cshtml";
+}
+<style>
+   
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    
+    th, td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+    }
+
+    
+    th {
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+   
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+  
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+  
+    a.asp-action {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    a.asp-action:hover {
+        background-color: #0056b3;
+    }
+</style>
+<h1>List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.ContentType)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.ContentType)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

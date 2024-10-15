@@ -1,0 +1,91 @@
+@model IEnumerable<EduHubMVC.Models.Course>
+@{
+    ViewData["Title"] = "Student Section";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-links {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    a.asp-action {
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: 14px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        width: 120px;
+        text-align: center;
+    }
+
+    a.asp-action:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+</style>
+
+<h1>List of Courses</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CourseId)</th>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.CourseStartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.CourseEndDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Category)</th>
+            <th>@Html.DisplayNameFor(model => model.Level)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CourseId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.CourseStartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.CourseEndDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                <td>@Html.DisplayFor(modelItem => item.Level)</td>
+                <td class="action-links">
+                    <a asp-action="Enroll" asp-controller="Enrollment" asp-route-id="@item.CourseId" class="asp-action">Enroll</a>
+                    <a asp-action="addEnquiry" asp-controller="Enquiry" asp-route-id="@item.CourseId" class="asp-action">Enquiry</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

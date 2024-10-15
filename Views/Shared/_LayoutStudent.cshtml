@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVC_Eduhub</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-sucess bg-warning border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVC_Eduhub</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="User" asp-action="AllEducator">All Educator</a>
+                        </li>
+                          </li>
+                           <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="LogOut">Logout</a>
+                        </li>
+                        @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Student" asp-action="AvailableCourses">Available Courses</a>
+                        </li> *@
+                        @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Student" asp-action="MyEnrollments">My Enrollments</a>
+                        </li> *@
+                        @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Student" asp-action="EnrollCourse">Enroll New Course</a>
+                        </li> *@
+                        @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Student" asp-action="SubmitFeedback">Submit Feedback</a>
+                        </li> *@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted bg-warning text-dark" style="padding: 0.5rem 1rem;">
+        <div class="container d-flex flex-column align-items-center">
+            <span>© 2024 - Tanmay_Kapse</span>
+            <div class="mt-2">
+                <a href="https://www.instagram.com" target="_blank" class="text-dark mx-2"><i class="fa fa-instagram"
+                        style="font-size:24px;"></i></a>
+                <a href="https://www.linkedin.com/in/tanmay-kapse-139819251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=PAZXh0bgNhZW0CMTEAAabchicOzocKFWAmxTEnmXVzurJRCzmwJssCvib3T4AIijjGDZAfGyMGRRE_aem_jb8Qdy1Dv_NHIMaY6dZgsA"
+                    target="_blank" class="text-dark mx-2"><i class="fa fa-linkedin" style="font-size:24px;"></i></a>
+                <a href="https://github.com/TanmayKapse123"
+                    target="_blank" class="text-dark mx-2"><i class="fa fa-github" style="font-size:24px;"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

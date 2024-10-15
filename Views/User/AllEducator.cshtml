@@ -1,0 +1,92 @@
+@model IEnumerable<EduHubMVC.Models.User>
+
+@{
+    ViewData["Title"] = "Student Section";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .a {
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: 14px;
+        background-color: #007bff; /* Blue background */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin: 5px 0; /* Space between links */
+    }
+
+    .a:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+</style>
+
+<h1>List Of Educator</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            @* <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th> *@
+            <th>@Html.DisplayNameFor(model => model.Username)</th>
+            @* <th>@Html.DisplayNameFor(model => model.Password)</th> *@
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Mobilenumber)</th>
+            <th>@Html.DisplayNameFor(model => model.Role)</th>
+            @* <th>@Html.DisplayNameFor(model => model.Active)</th> *@
+            @* <th>@Html.DisplayNameFor(model => model.ProfileImage)</th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td> *@
+                <td>@Html.DisplayFor(modelItem => item.Username)</td>
+                @* <td>@Html.DisplayFor(modelItem => item.Password)</td> *@
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Mobilenumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Role)</td>
+                @* <td>@Html.DisplayFor(modelItem => item.Active)</td> *@
+                @* <td>@Html.DisplayFor(modelItem => item.ProfileImage)</td> *@
+                <td>
+                    <a asp-area="" asp-controller="Course" asp-action="individualCourses" asp-route-id="@item.UserID" class="a">Courses</a> 
+                    @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

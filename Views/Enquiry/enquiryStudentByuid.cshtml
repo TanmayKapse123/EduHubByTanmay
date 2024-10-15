@@ -1,0 +1,113 @@
+@model IEnumerable<EduHubMVC.Models.Enquiry>
+
+@{
+    ViewData["Title"] = "Student Section";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+<h1>List of Enquiries</h1>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        border: 1px solid black;
+    }
+
+    th {
+        background-color: #007bff;
+        color: black;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .action-links a {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 5px 2px;
+        font-size: 14px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .action-links a:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EnquiryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.EnquiryDate)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Response)
+            </th>
+            @* <th>Actions</th> *@
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnquiryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.CourseId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.EnquiryDate)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Response)
+            </td>
+            <td class="action-links">
+                @* @Html.ActionLink("Edit", "Edit", new { id = item.EnquiryId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EnquiryId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EnquiryId })
+            </td> *@
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,120 @@
+@model IEnumerable<EduHubMVC.Models.Course>
+@{
+    ViewData["Title"] = "Educator Section";
+    Layout = "~/Views/Shared/_LayoutEducator.cshtml";
+}
+<style>
+    table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    a.asp-action {
+        display: inline-block;
+        padding: 15px 25px; /* Increased padding for bigger buttons */
+        margin: 10px 0;
+        font-size: 16px; /* Increased font size */
+        background-color: #28a745; /* Green background */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        width: 150px; /* Set a fixed width for all buttons */
+        text-align: center; /* Center-align text */
+    }
+
+    a.asp-action:hover {
+        background-color: #218838; /* Darker green on hover */
+        transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+
+    @* a.asp-action + a.asp-action {
+        margin-left: 10px; /* Space between buttons */
+    } *@
+</style> 
+
+<h1> Course List</h1>
+@{TempData.Keep("UserId");TempData.Keep("E");}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseEndDate)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseEndDate)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+          
+        </tr>
+}
+    </tbody>
+</table>

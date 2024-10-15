@@ -1,0 +1,68 @@
+@model EduHubMVC.Models.Enrollment
+
+@{
+       ViewData["Title"] = "Student Section";
+   Layout="~/Views/Shared/_LayoutStudent.cshtml";
+}
+<style>
+    .back-to-list {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .back-to-list:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<center><h4>Enrollment for Course</h4></center>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Enrollment Form
+            </div>
+            <div class="card-body">
+                <form asp-action="Enroll">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="UserId" class="control-label"></label>
+                        <input asp-for="UserId" class="form-control" />
+                        <span asp-validation-for="UserId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseId" class="control-label"></label>
+                        <input asp-for="CourseId" class="form-control" />
+                        <span asp-validation-for="CourseId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EnrollmentDate" class="control-label"></label>
+                        <input asp-for="EnrollmentDate" class="form-control" />
+                        <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label"></label>
+                        <input asp-for="Status" class="form-control" readonly />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+     <a asp-action="AllCourse" asp-controller="Student" class="back-to-list">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

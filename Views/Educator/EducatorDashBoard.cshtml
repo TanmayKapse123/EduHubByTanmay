@@ -1,0 +1,93 @@
+@{
+    ViewData["Title"] = "Educator Section";
+    Layout = "~/Views/Shared/_LayoutEducator.cshtml";
+}
+<style>
+
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .card {
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        width: 200px;
+        margin-bottom: 20px;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .card a:hover {
+        color: #0056b3;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 34px;
+    }
+
+    .image-container img {
+        width: 700px;
+        height: 400px;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+</style>
+
+<center><h1 style="color: green;">Welcome to educator dashboard :@TempData["E"] </h1></center>
+@* <center><h2 style="color: Red;">User_Id : @TempData["UserId"]</h2></center> *@
+
+
+<div class="container">
+    <div class="content">
+        <div>
+           <div class="card">
+    <a asp-area="" asp-controller="Course" asp-action="EducatorCourses" asp-route-id="@TempData["UserId"]">My Courses</a>@{TempData.Keep("UserId");TempData.Keep("E");}
+</div>
+            <div class="card">
+                <a asp-area="" asp-controller="Enrollment" asp-action="GetEnrollmentsById" asp-route-id="@TempData["UserId"]">Enroll Student</a>@{TempData.Keep("UserId");TempData.Keep("E");}
+            </div>
+             <div class="card">
+                <a asp-area="" asp-controller="Enrollment" asp-action="GetEnrollmentsByIdAndStatus" asp-route-id="@TempData["UserId"]">My Student</a>@{TempData.Keep("UserId");TempData.Keep("E");}
+            </div>
+            <div class="card">
+                <a asp-area="" asp-controller="Enquiry" asp-action="GetEnquiryById" asp-route-id="@TempData["UserId"]">Enquiries</a>@{TempData.Keep("UserId");TempData.Keep("E");}
+            </div>
+             <div class="card">
+ <a asp-area="" asp-controller="User" asp-action="Edit" asp-route-id="@TempData["UserId"]">Edit Profile</a>@{TempData.Keep("UserId");TempData.Keep("E");}
+  </div>
+        </div>
+        <div class="image-container">
+            <img src="~/Edu.png" alt="image">
+        </div>
+    </div>
+</div>

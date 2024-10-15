@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <h1 class="text-center">Register</h1>
+    <h4 class="text-center">User</h4>
+    <hr/>
+    <div class="col-md-6 mx-auto"> <!-- Center the form and set max width -->
+        <form asp-action="Register">
+            <div class="mb-3">
+                <label for="InputEmail" class="form-label">Email/label>
+                <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" required />
+            </div>
+            <div class="mb-3">
+                <label for="InputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="InputPassword" placeholder="Enter password" required />
+            </div>
+            @* <div class="mb-3">
+                <label for="InputConfirmPassword" class="form-label">Confirm password</label>
+                <input type="password" class="form-control" id="InputConfirmPassword" placeholder="Confirm password" required />
+            </div> *@
+            <div class="mb-3">
+                <label for="Username" class="form-label">User name</label>
+                <input type="text" class="form-control" id="Username" placeholder="Enter user name" required />
+            </div>
+            <div class="mb-3">
+                <label for="mobileNumber" class="form-label">Profile Image</label>
+                <input type="text" class="form-control" id="mobileNumber" placeholder="Enter mobile number" required />
+            </div>
+            <div class="mb-3">
+                <label for="Role" class="form-label">Role</label>
+                <select class="form-select" id="Role" required>
+                    <option value="" disabled selected>Choose...</option>
+                    <option value="1">Student</option>
+                    <option value="2">Educator</option>
+                </select>
+            </div>
+            <div class="d-grid mb-3">
+                <input type="submit" value="Register" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+ 
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}
+ 
